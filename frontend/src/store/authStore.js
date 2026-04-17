@@ -58,7 +58,7 @@ export const authStore = create((set, get) => ({
 
     connectSocket: () => {
         const { loggedUser } = get();
-        const socket = io("http://localhost:5000", {
+        const socket = io("https://buzzhub-backend-8z53.onrender.com", {
             query: { userId: loggedUser._id }
         });
             
