@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import {io} from "socket.io-client";
 
 
+
 export const authStore = create((set, get) => ({
     loggedUser: null,
     onlineUsers: [],
@@ -58,7 +59,8 @@ export const authStore = create((set, get) => ({
 
     connectSocket: () => {
         const { loggedUser } = get();
-        const socket = io("https://buzzhub-backend-8z53.onrender.com", {
+        const socket = io(import.meta.env.VITE_BACKEND_URL, {
+            withCredentials: true,
             query: { userId: loggedUser._id }
         });
             
