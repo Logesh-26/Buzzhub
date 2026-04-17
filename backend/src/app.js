@@ -28,6 +28,10 @@ import messageRoute from "./routes/messageRoute.js";
 app.use("/api/auth", authRoute);
 app.use("/api/message", messageRoute);
 
+app.get("/", (req, res) => {
+    res.send("Backend running");
+});
+
 mongoose.connect(process.env.MONGODB_URI).then((res) => {
     console.log("mongoDB connected:" + res.connection.host);
     server.listen(port, () => {
